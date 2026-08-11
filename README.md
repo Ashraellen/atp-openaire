@@ -35,7 +35,7 @@ Core ATP DOI: https://doi.org/10.5281/zenodo.21838981
 
 Fluent AI output can still drift away from authorial intent. Literary features that look inefficient to a general-purpose model — repetition, unresolved ambiguity, strange imagery, structural pressure — may be deliberate. ATP separates four things that are often mixed together: source authority, authorial constraints, external research context, and model-generated proposals.
 
-The OpenAIRE Graph is used as an explicit scholarly-context layer. Retrieved metadata may support research awareness and verification, but it may not silently override the frozen source or authorial constraints.
+The OpenAIRE Graph is used as an explicit scholarly-context layer. Retrieved metadata may support research awareness and verification, but it may not silently override the authorized source or authorial constraints.
 
 ## Working demonstrator
 
@@ -98,14 +98,17 @@ The V3 research-products endpoint supports keyword search, type filtering, sorti
 
 The included parser intentionally supports only the small YAML subset used by this public demo.
 
-## Architecture and method
+## Architecture, method, and submission package
 
 - [Core ATP repository](https://github.com/Ashraellen/ashraellen-atp) — origin, full protocol, reusable templates, reproducibility model, DOI-backed releases.
 - [`methodology/ATP_METHOD_v0.1.md`](methodology/ATP_METHOD_v0.1.md) — OpenAIRE-extension constraint and revision protocol.
 - [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md) — authority hierarchy, trust boundaries, and reproducibility model.
 - [`docs/PROJECT_RELATIONSHIP.md`](docs/PROJECT_RELATIONSHIP.md) — formal relationship between core ATP and this extension.
-- [`submission/STORY_DRAFT.md`](submission/STORY_DRAFT.md) — hackathon 1–2 page story draft.
+- [`submission/EVALUATOR_BRIEF.md`](submission/EVALUATOR_BRIEF.md) — one-minute project brief.
+- [`submission/STORY_FINAL.md`](submission/STORY_FINAL.md) — final 1–2 page hackathon story.
 - [`submission/REGISTRATION_TEXT.md`](submission/REGISTRATION_TEXT.md) — prepared registration form copy.
+- [`submission/JUDGE_QA.md`](submission/JUDGE_QA.md) — evaluator-facing questions, claims, and evidence.
+- [`submission/SUBMISSION_CHECKLIST.md`](submission/SUBMISSION_CHECKLIST.md) — final public/manual submission gate.
 
 ## Repository layout
 
@@ -116,7 +119,7 @@ src/           reusable Python modules
 demo/          synthetic demonstration inputs and runner
 tests/         deterministic tests
 docs/          architecture, provenance, and lineage notes
-submission/    hackathon submission materials
+submission/    final hackathon submission materials
 ```
 
 ## Licensing
@@ -131,4 +134,4 @@ This repository does **not** contain private literary masters, unpublished MONOL
 
 ## Status
 
-Hackathon MVP: OpenAIRE retrieval, normalization, provenance capture, constraint loading, SHA-256 manifest generation, unit tests, architecture/methodology documentation, licensing, citation metadata, and live CI are implemented.
+Hackathon submission package prepared: OpenAIRE retrieval, normalization, provenance capture, constraint loading, SHA-256 manifest generation, unit tests, architecture/methodology documentation, licensing, citation metadata, live CI, evaluator brief, final story, registration copy, evaluator QA, and submission checklist are present.
