@@ -54,7 +54,7 @@ Production API used by the prototype:
 
 `https://api.openaire.eu/graph/v3/research-products`
 
-The V3 research-products endpoint supports keyword search, type filtering, sorting and paging. The client is designed to work without authentication for the small public demo; a bearer token can be supplied later without changing the workflow model.
+The current V3 research-products endpoint supports keyword search, type filtering, sorting, statistics, offset paging and cursor paging. The client uses only a small public query and therefore does not require authentication; a bearer token can be supplied later without changing the workflow model.
 
 OpenAIRE Graph records are treated as external research metadata with explicit provenance. Their presence in the research context does not imply endorsement of a translation decision.
 
