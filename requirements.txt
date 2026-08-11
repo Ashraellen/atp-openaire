@@ -1,0 +1,3 @@
+# ATP OpenAIRE public demonstrator has no third-party Python runtime dependencies.
+# Requires Python >= 3.10.
+# The standard library is sufficient for the direct OpenAIRE Graph V3 demonstrator.
