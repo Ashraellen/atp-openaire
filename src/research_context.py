@@ -55,6 +55,9 @@ def normalize_product(product: dict[str, Any]) -> dict[str, Any]:
     publication_date = product.get("publicationDate") or product.get("dateOfAcceptance") or product.get("date")
     product_type = product.get("type") or product.get("resultType")
     access = product.get("bestAccessRight") or product.get("accessRight") or product.get("openAccessColor")
+    citation_count = product.get("citationCount")
+    if citation_count is None:
+        citation_count = product.get("citationsCount")
 
     return {
         "openaire_id": product.get("id"),
@@ -64,7 +67,7 @@ def normalize_product(product: dict[str, Any]) -> dict[str, Any]:
         "authors": _authors(product),
         "identifiers": _identifiers(product),
         "access": access,
-        "citation_count": product.get("citationCount") or product.get("citationsCount"),
+        "citation_count": citation_count,
     }
 
 

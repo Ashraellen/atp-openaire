@@ -2,15 +2,17 @@
 
 An auditable human–AI workflow for multilingual literary and research transcreation with OpenAIRE Graph integration.
 
-## What this repository explores
+ATP treats literary transcreation as a constrained, stateful process rather than unconstrained rewriting. It makes terminology, continuity, intentional ambiguity, voice, structural rules, prohibited normalization, bounded revision, provenance, and human review explicit.
 
-ATP treats literary transcreation as a constrained, stateful process rather than unconstrained rewriting. The workflow makes authorial constraints explicit — terminology, continuity, ambiguity, structural rules, voice and bounded revision requirements — and combines them with open scholarly context retrieved from the OpenAIRE Graph.
+Prepared as a public artifact for the OpenAIRE AI Hackathon 2026. Private literary masters and internal production canon are intentionally excluded.
 
-The project is being prepared as an OpenAIRE AI Hackathon 2026 artifact. The public repository contains only material prepared for open release; private literary masters and internal production canon are intentionally excluded.
+## Why ATP
+
+Fluent AI output can still drift away from authorial intent. Literary features that look inefficient to a general-purpose model — repetition, unresolved ambiguity, strange imagery, structural pressure — may be deliberate. ATP separates four things that are often mixed together: source authority, authorial constraints, external research context, and model-generated proposals.
+
+The OpenAIRE Graph is used as an explicit scholarly-context layer. Retrieved metadata may support research awareness and verification, but it may not silently override the frozen source or authorial constraints.
 
 ## Working demonstrator
-
-The current public demonstrator implements the research-context side of the workflow end to end:
 
 ```text
 demo/source.txt
@@ -23,16 +25,14 @@ normalized research metadata
       ↓
 provenance JSON + research-context Markdown
       ↓
-auditable manifest for the later transcreation stage
+auditable manifest with SHA-256 input hashes
+      ↓
+later model-agnostic transcreation + bounded revision + human review
 ```
-
-The prototype deliberately keeps scholarly retrieval separate from model-generated literary output. Research metadata can inform context and verification, but it cannot silently rewrite or override authorial constraints.
 
 ## Run it
 
 Requirements: Python 3.10+ and an internet connection. No third-party Python packages and no OpenAIRE account are required for the small public demo.
-
-From the repository root:
 
 ```bash
 python demo/run_demo.py
@@ -41,50 +41,65 @@ python demo/run_demo.py
 The run writes:
 
 ```text
-demo/generated/research_results.json   normalized OpenAIRE provenance
-demo/generated/research_context.md     human-readable research context
-demo/generated/demo_manifest.json      input hashes, constraints and pipeline state
+demo/generated/research_results.json
+demo/generated/research_context.md
+demo/generated/demo_manifest.json
 ```
 
-The source and constraint files are hashed with SHA-256 in the manifest so a later transcreation result can be tied to the exact public inputs used for that run.
+The source and constraints are SHA-256 hashed in the manifest so downstream output can be tied to exact public inputs.
+
+## Continuous verification
+
+GitHub Actions runs deterministic unit tests and a live smoke query against OpenAIRE Graph V3. A successful run validates that the API returned research products and uploads the generated demo directory as a reproducibility artifact.
 
 ## OpenAIRE Graph
 
-Production API used by the prototype:
+Production endpoint:
 
 `https://api.openaire.eu/graph/v3/research-products`
 
-The current V3 research-products endpoint supports keyword search, type filtering, sorting, statistics, offset paging and cursor paging. The client uses only a small public query and therefore does not require authentication; a bearer token can be supplied later without changing the workflow model.
-
-OpenAIRE Graph records are treated as external research metadata with explicit provenance. Their presence in the research context does not imply endorsement of a translation decision.
+The V3 research-products endpoint supports keyword search, type filtering, sorting, statistics, offset paging, and cursor paging. ATP uses only a small public query; bearer-token authentication can be added without changing the workflow model.
 
 ## Constraint model
 
-`demo/constraints.yaml` is intentionally small and public. It defines:
+`demo/constraints.yaml` defines:
 
 - source and target languages;
-- a research query;
+- the OpenAIRE research query;
 - properties that must be preserved;
 - transformations that are forbidden;
-- the number of bounded revision passes;
+- bounded revision passes;
 - provenance and human-review requirements.
 
-The demonstrator includes a tiny dependency-free parser for this limited YAML subset. It is not intended as a general-purpose YAML implementation.
+The included parser intentionally supports only the small YAML subset used by this public demo.
+
+## Architecture and method
+
+- [`methodology/ATP_METHOD_v0.1.md`](methodology/ATP_METHOD_v0.1.md) — constraint and revision protocol.
+- [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md) — authority hierarchy, trust boundaries, and reproducibility model.
+- [`submission/STORY_DRAFT.md`](submission/STORY_DRAFT.md) — hackathon 1–2 page story draft.
+- [`submission/REGISTRATION_TEXT.md`](submission/REGISTRATION_TEXT.md) — prepared registration form copy.
 
 ## Repository layout
 
 ```text
+.github/       CI / live OpenAIRE smoke test
 methodology/   ATP protocol and constraint model
 src/           reusable Python modules
-demo/          reproducible demonstration inputs and runner
+demo/          synthetic demonstration inputs and runner
+tests/         deterministic tests
 docs/          architecture and provenance notes
 submission/    hackathon submission materials
 ```
 
+## Licensing
+
+Software is licensed under MIT. Methodology, documentation, public demo text, and submission materials are licensed under CC BY 4.0. OpenAIRE metadata retains OpenAIRE attribution and provenance. See [`LICENSE.md`](LICENSE.md).
+
 ## Public/private boundary
 
-This repository does **not** contain private literary masters, unpublished MONOLITH canon, production prompts or internal project state. The demo passage is a synthetic public example created specifically for reproducibility and open release.
+This repository does **not** contain private literary masters, unpublished MONOLITH canon, production prompts, or private project state. The demo passage is synthetic and was created specifically for reproducibility and open release.
 
 ## Status
 
-Public prototype. OpenAIRE retrieval, normalization, provenance capture, constraint loading and manifest generation are implemented. The next layer is a model-agnostic transcreation adapter plus bounded QA that consumes the frozen constraint set without allowing retrieved research metadata to become hidden editorial instruction.
+Hackathon MVP: OpenAIRE retrieval, normalization, provenance capture, constraint loading, SHA-256 manifest generation, unit tests, architecture/methodology documentation, licensing, citation metadata, and live CI are implemented.
