@@ -2,9 +2,34 @@
 
 An auditable human–AI workflow for multilingual literary and research transcreation with OpenAIRE Graph integration.
 
+This repository is the **OpenAIRE research/provenance extension** of the [Ashraellen Transcreation Protocol (ATP)](https://github.com/Ashraellen/ashraellen-atp), a pre-existing human-directed protocol for AI-assisted literary transcreation. The core ATP repository contains the origin story, methodology, durable-state model, protocol templates, DOI-backed release history, and the human–AI authority framework. This repository adds a reproducible OpenAIRE Graph layer without redefining the underlying protocol.
+
 ATP treats literary transcreation as a constrained, stateful process rather than unconstrained rewriting. It makes terminology, continuity, intentional ambiguity, voice, structural rules, prohibited normalization, bounded revision, provenance, and human review explicit.
 
 Prepared as a public artifact for the OpenAIRE AI Hackathon 2026. Private literary masters and internal production canon are intentionally excluded.
+
+## Project lineage
+
+ATP did not originate as a hackathon project. It grew out of sustained multilingual literary production and the practical need to use AI without surrendering authorial control. The core question was:
+
+> **How can AI help an author cross languages without replacing the author?**
+
+The core protocol answers that by making authorial state durable and keeping canonical authority with the human. The OpenAIRE extension asks the next question:
+
+> **How can external scholarly context be added to that workflow while remaining inspectable, attributable, and unable to silently override the author?**
+
+The relationship is therefore:
+
+```text
+ashraellen-atp
+core methodology + origin + authority model + durable state
+        ↓
+atp-openaire
+OpenAIRE Graph retrieval + research provenance + reproducible demonstrator
+```
+
+Core protocol: https://github.com/Ashraellen/ashraellen-atp  
+Core ATP DOI: https://doi.org/10.5281/zenodo.21838981
 
 ## Why ATP
 
@@ -75,8 +100,10 @@ The included parser intentionally supports only the small YAML subset used by th
 
 ## Architecture and method
 
-- [`methodology/ATP_METHOD_v0.1.md`](methodology/ATP_METHOD_v0.1.md) — constraint and revision protocol.
+- [Core ATP repository](https://github.com/Ashraellen/ashraellen-atp) — origin, full protocol, reusable templates, reproducibility model, DOI-backed releases.
+- [`methodology/ATP_METHOD_v0.1.md`](methodology/ATP_METHOD_v0.1.md) — OpenAIRE-extension constraint and revision protocol.
 - [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md) — authority hierarchy, trust boundaries, and reproducibility model.
+- [`docs/PROJECT_RELATIONSHIP.md`](docs/PROJECT_RELATIONSHIP.md) — formal relationship between core ATP and this extension.
 - [`submission/STORY_DRAFT.md`](submission/STORY_DRAFT.md) — hackathon 1–2 page story draft.
 - [`submission/REGISTRATION_TEXT.md`](submission/REGISTRATION_TEXT.md) — prepared registration form copy.
 
@@ -84,17 +111,19 @@ The included parser intentionally supports only the small YAML subset used by th
 
 ```text
 .github/       CI / live OpenAIRE smoke test
-methodology/   ATP protocol and constraint model
+methodology/   ATP extension protocol and constraint model
 src/           reusable Python modules
 demo/          synthetic demonstration inputs and runner
 tests/         deterministic tests
-docs/          architecture and provenance notes
+docs/          architecture, provenance, and lineage notes
 submission/    hackathon submission materials
 ```
 
 ## Licensing
 
 Software is licensed under MIT. Methodology, documentation, public demo text, and submission materials are licensed under CC BY 4.0. OpenAIRE metadata retains OpenAIRE attribution and provenance. See [`LICENSE.md`](LICENSE.md).
+
+The separately maintained core ATP repository is licensed under CC BY 4.0 for its public methodology, documentation, and templates. Literary works including MONOLITH remain separately copyrighted and are not opened by either repository.
 
 ## Public/private boundary
 
