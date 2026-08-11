@@ -104,6 +104,7 @@ The included parser intentionally supports only the small YAML subset used by th
 - [`methodology/ATP_METHOD_v0.1.md`](methodology/ATP_METHOD_v0.1.md) — OpenAIRE-extension constraint and revision protocol.
 - [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md) — authority hierarchy, trust boundaries, and reproducibility model.
 - [`docs/PROJECT_RELATIONSHIP.md`](docs/PROJECT_RELATIONSHIP.md) — formal relationship between core ATP and this extension.
+- [`submission/EVALUATOR_BRIEF.md`](submission/EVALUATOR_BRIEF.md) — one-minute project brief.
 - [`submission/STORY_FINAL.md`](submission/STORY_FINAL.md) — final 1–2 page hackathon story.
 - [`submission/REGISTRATION_TEXT.md`](submission/REGISTRATION_TEXT.md) — prepared registration form copy.
 - [`submission/JUDGE_QA.md`](submission/JUDGE_QA.md) — evaluator-facing questions, claims, and evidence.
@@ -133,4 +134,4 @@ This repository does **not** contain private literary masters, unpublished MONOL
 
 ## Status
 
-Hackathon submission package prepared: OpenAIRE retrieval, normalization, provenance capture, constraint loading, SHA-256 manifest generation, unit tests, architecture/methodology documentation, licensing, citation metadata, live CI, final story, registration copy, evaluator QA, and submission checklist are present.
+Hackathon submission package prepared: OpenAIRE retrieval, normalization, provenance capture, constraint loading, SHA-256 manifest generation, unit tests, architecture/methodology documentation, licensing, citation metadata, live CI, evaluator brief, final story, registration copy, evaluator QA, and submission checklist are present.
