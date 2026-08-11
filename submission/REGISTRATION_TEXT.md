@@ -16,11 +16,17 @@ Digital humanities; multilingual AI; literary translation; human–AI collaborat
 
 ## Company / Project Name
 
-ATP — Constraint-Preserved AI Transcreation
+ATP OpenAIRE — Research provenance for constraint-preserved AI transcreation
 
 ## Company / Project Website
 
 https://github.com/Ashraellen/atp-openaire
+
+## Core methodology / prior project
+
+Ashraellen Transcreation Protocol (ATP): https://github.com/Ashraellen/ashraellen-atp
+
+DOI: https://doi.org/10.5281/zenodo.21838981
 
 ## GitHub / GitLab Profile
 
@@ -36,7 +42,11 @@ B — Build
 
 ## Project Idea or Use Case
 
-ATP is an auditable, model-agnostic workflow for AI-assisted multilingual literary transcreation. It makes authorial constraints explicit — terminology, continuity, intentional ambiguity, voice, structure, prohibited normalization, bounded revision, and human review — and combines them with a separate scholarly-context layer retrieved from the OpenAIRE Graph. The public demonstrator queries OpenAIRE Graph V3, normalizes research metadata, records provenance, hashes the source and constraints, and generates a reproducible research-context manifest. The core design rule is that external research context can inform verification but cannot silently override the frozen source or authorial constraints. The artifact includes reusable Python code, methodology, architecture documentation, a synthetic multilingual demo, tests, and live CI.
+ATP OpenAIRE is a research/provenance extension of the pre-existing Ashraellen Transcreation Protocol (ATP), a human-directed, model-agnostic workflow for AI-assisted multilingual literary transcreation. Core ATP makes authorial constraints explicit — terminology, continuity, intentional ambiguity, voice, structure, prohibited normalization, bounded revision, and human review. The hackathon extension adds a separate scholarly-context layer retrieved from the OpenAIRE Graph without allowing external research metadata to silently override the frozen source or authorial constraints. The public demonstrator queries OpenAIRE Graph V3, normalizes research metadata, records provenance, hashes the source and constraints, generates a reproducible research-context manifest, and validates the workflow through live GitHub Actions CI. The artifact includes reusable Python code, methodology, architecture documentation, a synthetic multilingual demo, tests, and reproducibility artifacts. The core ATP methodology predates the hackathon and has a separate public repository and DOI-backed release history.
+
+## Shorter version, if the form has a tight limit
+
+ATP OpenAIRE extends the pre-existing Ashraellen Transcreation Protocol with an auditable OpenAIRE Graph research layer. ATP preserves explicit authorial constraints and human authority in AI-assisted literary transcreation; the extension retrieves and attributes scholarly context without allowing it to become hidden editorial instruction. The public Python demonstrator records provenance, hashes source/constraints, generates a reproducible manifest, and is verified by live GitHub Actions CI.
 
 ## How did you hear about this hackathon?
 
