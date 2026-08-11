@@ -1,6 +1,6 @@
 # OpenAIRE AI Hackathon registration copy
 
-Use these fields when registering. Personal contact details should be entered by the participant directly.
+Use these fields when registering. Personal contact details and consent should be entered by the participant directly.
 
 ## Affiliation / Organisation
 
@@ -42,7 +42,7 @@ B — Build
 
 ## Project Idea or Use Case
 
-ATP OpenAIRE is a research/provenance extension of the pre-existing Ashraellen Transcreation Protocol (ATP), a human-directed, model-agnostic workflow for AI-assisted multilingual literary transcreation. Core ATP makes authorial constraints explicit — terminology, continuity, intentional ambiguity, voice, structure, prohibited normalization, bounded revision, and human review. The hackathon extension adds a separate scholarly-context layer retrieved from the OpenAIRE Graph without allowing external research metadata to silently override the frozen source or authorial constraints. The public demonstrator queries OpenAIRE Graph V3, normalizes research metadata, records provenance, hashes the source and constraints, generates a reproducible research-context manifest, and validates the workflow through live GitHub Actions CI. The artifact includes reusable Python code, methodology, architecture documentation, a synthetic multilingual demo, tests, and reproducibility artifacts. The core ATP methodology predates the hackathon and has a separate public repository and DOI-backed release history.
+ATP OpenAIRE is a research/provenance extension of the pre-existing Ashraellen Transcreation Protocol (ATP), a human-directed, model-agnostic workflow for AI-assisted multilingual literary transcreation. Core ATP makes authorial constraints explicit — terminology, continuity, intentional ambiguity, voice, structure, prohibited normalization, bounded revision, and human review. The hackathon extension adds a separate scholarly-context layer retrieved from the OpenAIRE Graph without allowing external research metadata to silently override the authorized source or authorial constraints. The public demonstrator queries OpenAIRE Graph V3, normalizes research metadata, records provenance, hashes the source and constraints, generates a reproducible research-context manifest, and validates the workflow through live GitHub Actions CI. The artifact includes reusable Python code, methodology, architecture documentation, a synthetic multilingual demo, tests, and reproducibility artifacts. The core ATP methodology predates the hackathon and has a separate public repository and DOI-backed release history.
 
 ## Shorter version, if the form has a tight limit
 
@@ -54,4 +54,4 @@ OpenAIRE website
 
 ## Submission deadline note
 
-The current official hackathon page and registration page state 20 August 2026 at 23:59 CET. Submit earlier rather than relying on the final hour.
+The official hackathon page currently contains conflicting deadline times for 20 August 2026: one section says **18:00 CET**, while the detailed timeline says **23:59 CET**. Treat **18:00 CET as the operational deadline** and submit well before it.
