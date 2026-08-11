@@ -1,0 +1,24 @@
+# Public synthetic constraints for the ATP demonstrator.
+# This file intentionally contains no private MONOLITH canon or unpublished literary master.
+
+project_id: "ATP-DEMO-001"
+source_language: "ru"
+target_language: "en"
+research_query: "literary translation large language models authorial voice ambiguity"
+
+preserve:
+- "intentional ambiguity"
+- "recurring terminology"
+- "character voice"
+- "sentence-level structural progression"
+- "concrete architectural imagery"
+
+forbid:
+- "adding explanations not present in the source"
+- "resolving ambiguity the source leaves unresolved"
+- "normalizing unusual but intentional imagery"
+- "inventing research claims from retrieved metadata"
+
+bounded_revision_passes: 1
+require_provenance: true
+require_human_review: true
