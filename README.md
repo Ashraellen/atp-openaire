@@ -57,7 +57,7 @@ later model-agnostic transcreation + bounded revision + human review
 
 ## Run it
 
-Requirements: Python 3.10+ and an internet connection. No third-party Python packages and no OpenAIRE account are required for the small public demo.
+Requirements: Python 3.10+ and an internet connection. No third-party Python packages and no OpenAIRE account are required for the small public direct-API demo. See [`requirements.txt`](requirements.txt).
 
 ```bash
 python demo/run_demo.py
@@ -108,7 +108,9 @@ The included parser intentionally supports only the small YAML subset used by th
 - [`submission/STORY_FINAL.md`](submission/STORY_FINAL.md) — final 1–2 page hackathon story.
 - [`submission/REGISTRATION_TEXT.md`](submission/REGISTRATION_TEXT.md) — prepared registration form copy.
 - [`submission/JUDGE_QA.md`](submission/JUDGE_QA.md) — evaluator-facing questions, claims, and evidence.
-- [`submission/SUBMISSION_CHECKLIST.md`](submission/SUBMISSION_CHECKLIST.md) — final public/manual submission gate.
+- [`submission/SUBMISSION_CHECKLIST.md`](submission/SUBMISSION_CHECKLIST.md) — public/manual submission gate.
+- [`submission/OFFICIAL_TEMPLATE_DRAFT.md`](submission/OFFICIAL_TEMPLATE_DRAFT.md) — field-by-field draft aligned to the official OpenAIRE template.
+- [`submission/EVALUATION_MATRIX.md`](submission/EVALUATION_MATRIX.md) — six-criterion scoring map and remaining gates.
 
 ## Repository layout
 
@@ -134,4 +136,6 @@ This repository does **not** contain private literary masters, unpublished MONOL
 
 ## Status
 
-Hackathon submission package prepared: OpenAIRE retrieval, normalization, provenance capture, constraint loading, SHA-256 manifest generation, unit tests, architecture/methodology documentation, licensing, citation metadata, live CI, evaluator brief, final story, registration copy, evaluator QA, and submission checklist are present.
+The direct OpenAIRE Graph V3 demonstrator, normalization/provenance layer, SHA-256 manifest, unit tests, live CI, methodology, architecture, licensing, citation metadata and judge-facing submission materials are implemented.
+
+**Open completion gate:** the official hackathon template explicitly scores use of the Alien Intelligence OpenAIRE AI MCP connector. Direct API integration alone is therefore not presented as the finished competition state. MCP use will be added and evidenced before final submission; tracking issue: [#5](https://github.com/Ashraellen/atp-openaire/issues/5).
