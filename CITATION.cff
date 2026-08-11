@@ -1,0 +1,19 @@
+cff-version: 1.2.0
+message: "If you use ATP, please cite this repository."
+title: "ATP — Constraint-Preserved AI Transcreation"
+type: software
+authors:
+  - name: Ashraellen
+repository-code: "https://github.com/Ashraellen/atp-openaire"
+url: "https://github.com/Ashraellen/atp-openaire"
+license: MIT
+version: 0.1.0
+date-released: 2026-08-11
+abstract: "An auditable human–AI workflow for multilingual literary and research transcreation with explicit authorial constraints, bounded revision, provenance, and OpenAIRE Graph integration."
+keywords:
+  - transcreation
+  - literary translation
+  - human-AI collaboration
+  - OpenAIRE
+  - provenance
+  - multilingual AI
