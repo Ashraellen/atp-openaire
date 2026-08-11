@@ -1,0 +1,43 @@
+name: ATP smoke test
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Unit tests
+        run: python -m unittest discover -s tests -v
+      - name: Live OpenAIRE Graph V3 smoke run
+        run: python demo/run_demo.py
+      - name: Validate generated manifest
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p = Path('demo/generated/demo_manifest.json')
+          data = json.loads(p.read_text(encoding='utf-8'))
+          assert data['research']['provider'] == 'OpenAIRE Graph'
+          assert data['research']['api_version'] == 'v3'
+          assert data['research']['returned'] > 0
+          print('manifest OK; returned', data['research']['returned'])
+          PY
+      - name: Upload reproducibility artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: atp-openaire-demo-${{ github.sha }}
+          path: demo/generated/
+          if-no-files-found: error
+          retention-days: 30
